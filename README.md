@@ -2,7 +2,7 @@
 （该项目设计思路来源于图灵学院-鲁班老师）
 通过字节码插装技术，来监控类中的方法调用情况。
 目前该工程已实现功能：
-1、采集指定路径类方法调用结果。
+1、采集指定路径类方法调用情况（不包含入参，返回结果，因为不是代理）
 {"begin":1533783358148,"end":1533783358148,"useTime":0,"serviceName":"com.common.apm.test.TestServiceImpl","simpleName":".TestServiceImpl","methodName":"getUser","recordTime":1533783358148,"modelType":"service","hostIp":"","hostName":"","appKey":"zdzApp"}
 2、采集数据库sql执行情况（目前支持mysql数据库驱动的监控）：
 {"begin":1533800300511,"end":1533800300605,"useTime":94,"jdbcUrl":"jdbc:mysql://192.168.*.17:3306/daabase?useUnicode=true&;characterEncoding=UTF8","databaseName":"database","dbUsername":"test_write@192.168.*.16","sql":"update free_lunch set creator = ? where bus_id = ?","params":[{"index":1,"value":"zoudezhu"},{"index":2,"value":"2144ac70-d4c0-4ff2-95b1-96680a7b5c33"}],"sqlRes":"1","preman":"1","recordTime":0,"modelType":"jdbc","appKey":"testApp"}
@@ -37,6 +37,6 @@
  logPath（必填）：日志的输出路径。
  
  注释：
- sql的监控是监控com.mysql.jdbc.NonRegisteringDriver类中的java.sql.Connection 接口 和 java.sql.PreparedStatement 接口来实现的。
+ sql的监控是监控java.sql.Driver接口中的java.sql.Connection 接口 和 java.sql.PreparedStatement 接口，mysql驱动对应：com.mysql.jdbc.NonRegisteringDriver。
  
  
