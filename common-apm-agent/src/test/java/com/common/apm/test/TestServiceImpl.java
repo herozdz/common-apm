@@ -27,11 +27,10 @@ public class TestServiceImpl {
                } catch (Throwable e) {
                     instance.error(statistic,e);
                     throw e;
-               }finally{\n"
+               }finally{
                     instance.end(statistic);
                }
-             };
-            }
+             }
      *
      * */
 
