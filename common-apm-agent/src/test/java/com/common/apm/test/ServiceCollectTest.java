@@ -28,6 +28,8 @@ public class ServiceCollectTest {
         Properties pro=new Properties();
         pro.put("service.include","com.tuling.apm1.*&com.common.apm.test.*");
         pro.put("service.exclude","com.tuling.apm.test1.*");
+        pro.put("logPath","/export/Instances/item.vcpserv/server1/logs/");
+        pro.put("appKey","testApp");
         context = new ApmContext(instrumentation,pro);
         serviceCollect = new ServiceCollect(instrumentation,context);
     }

@@ -2,6 +2,7 @@ package com.common.apm.collects;
 
 import com.common.apm.ApmContext;
 import com.common.apm.ICollect;
+import com.common.apm.common.HostUtil;
 import com.common.apm.common.WildcardMatcher;
 import com.common.apm.model.ServiceStatistics;
 import javassist.CtClass;
@@ -64,8 +65,8 @@ public class ServiceCollect extends AbstractByteTransformCollect implements ICol
     public ServiceStatistics begin(String className, String methodName){
         ServiceStatistics bean = new ServiceStatistics();
         bean.setRecordTime(System.currentTimeMillis());
-        bean.setHostIp("");
-        bean.setHostName("");
+        bean.setHostIp(HostUtil.getHostIp());
+        bean.setHostName(HostUtil.getHostName());
         bean.setBegin(System.currentTimeMillis());
         bean.setServiceName(className);
         bean.setMethodName(methodName);

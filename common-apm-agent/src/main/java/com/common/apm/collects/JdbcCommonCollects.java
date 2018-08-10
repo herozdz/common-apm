@@ -2,6 +2,7 @@ package com.common.apm.collects;
 
 import com.common.apm.ApmContext;
 import com.common.apm.ICollect;
+import com.common.apm.common.HostUtil;
 import com.common.apm.model.JdbcStatistics;
 import javassist.CtClass;
 import javassist.CtMethod;
@@ -50,6 +51,8 @@ public class JdbcCommonCollects extends AbstractByteTransformCollect implements 
     public JdbcStatistics begin(String className, String method){
         JdbcStatistics jdbcStatistics = new JdbcStatistics();
         jdbcStatistics.begin=System.currentTimeMillis();
+        jdbcStatistics.setHostIp(HostUtil.getHostIp());
+        jdbcStatistics.setHostName(HostUtil.getHostName());
         jdbcStatistics.setModelType("jdbc");
         jdbcStatistics.setAppKey(context.getConfig("appKey"));
         return jdbcStatistics;
@@ -184,8 +187,8 @@ public class JdbcCommonCollects extends AbstractByteTransformCollect implements 
                 /**
                  * 扩展设置参数
                  * */
-                if("setString".equals(method.getName())){
-                    this.jdbcStatistics.params.add(new JdbcStatistics.ParamValues((Integer) args[0],args[1]));
+                if("set".equals(method.getName().substring(0,3))){
+                    this.jdbcStatistics.params.add(new JdbcStatistics.ParamValues(args));
                     /**... ...*/
                 }
                 //如果参数进行了预处理设置设置字段1

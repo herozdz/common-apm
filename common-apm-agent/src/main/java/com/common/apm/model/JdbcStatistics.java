@@ -36,19 +36,16 @@ public class JdbcStatistics extends BaseStatistics {
     }
 
     public static class ParamValues{
-        public int index;
-        public Object value;
+        public Object[] values;
 
-        public ParamValues(int index, Object value) {
-            this.index = index;
-            this.value = value;
+        public ParamValues(Object[] values) {
+            this.values = values;
         }
 
         @Override
         public String toString() {
             final StringBuffer sb = new StringBuffer("ParamValues{");
-            sb.append("index=").append(index);
-            sb.append(", value=").append(value);
+            sb.append(", values=").append(values);
             sb.append('}');
             return sb.toString();
         }

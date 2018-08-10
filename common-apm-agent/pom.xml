@@ -27,6 +27,7 @@
 
 
         <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-coyote -->
+        <!--测试类使用，打包的时候需要注释掉，以防与调用应用中jar冲突，引起类污染-->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-coyote</artifactId>
@@ -43,6 +44,7 @@
             <artifactId>c3p0</artifactId>
             <version>0.9.1.2</version>
         </dependency>
+        <!--测试类使用，打包的时候需要注释掉，以防与调用应用中jar冲突，引起类污染-->
     </dependencies>
 
     <build>
