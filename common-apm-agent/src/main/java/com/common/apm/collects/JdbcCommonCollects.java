@@ -51,6 +51,7 @@ public class JdbcCommonCollects extends AbstractByteTransformCollect implements 
     public JdbcStatistics begin(String className, String method){
         JdbcStatistics jdbcStatistics = new JdbcStatistics();
         jdbcStatistics.begin=System.currentTimeMillis();
+        jdbcStatistics.setRecordTime(System.currentTimeMillis());
         jdbcStatistics.setHostIp(HostUtil.getHostIp());
         jdbcStatistics.setHostName(HostUtil.getHostName());
         jdbcStatistics.setModelType("jdbc");

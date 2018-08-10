@@ -11,9 +11,12 @@
 
 使用：
 1、将项目打包：apm-agent-1.0-SNAPSHOT.jar
-   切记打包的时候将common-apm-agent/pom.xml 中测试类使用的jar注释掉，以防与调用应用中jar冲突，引起类污染。
+   *切记打包的时候将common-apm-agent/pom.xml 中测试类使用的jar注释掉，以防与调用应用中jar冲突，引起类污染。
    之所以提代码的时候没有注释掉，是应为测试类中需要用到，本地测试的时候需要使用。
-2、将jar上传至git私服
+2、安装jar包
+    1）如果你们公司有maven私服，将jar上传至maven私服。
+    2）如果在本地测试，可以使用maven命令讲jar安装到本地。
+    mvn install:install-file -DgroupId=com.apm -DartifactId=apm-agent -Dversion=1.0-SNAPSHOT -Dpackaging=jar -Dfile=/data/zoudezhu/tmp/apm-agent-1.0-SNAPSHOT.jar
 3、配置项目pom.xml
 <dependency>
    <groupId>com.apm</groupId>
