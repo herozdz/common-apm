@@ -39,13 +39,20 @@
  vm 参数添加：
  -javaagent:**/WEB-INF/lib/apm-agent-1.0-SNAPSHOT.jar=service.include=com.impl.*&com.service.impl.*,appKey=zdzApp,logPath=/path/server1/logs/
  
- #### -javaagent参数说明：
- 核心jar全路径：是maven打包在/WEB-INF/lib/下的apm-agent-1.0-SNAPSHOT.jar  例如 :**/WEB-INF/lib/apm-agent-1.0-SNAPSHOT.jar  
- agent接受参数：各个参数使用逗号隔开，参数类别如下：
- service.include（非必填） ：监控哪些包下面的类，包名可以使用通配符，多个包路径使用&字符隔开。
- service.exclude（非必填） ：排除监控哪些包下面的类，包名可以使用通配符，多个包路径使用&字符隔开。
- appKey（必填）:被监控项目代码。
- logPath（必填）：日志的输出路径。
+ #### -javaagent参数说明：  
+ 
+ 核心jar全路径：是maven打包在/WEB-INF/lib/下的apm-agent-1.0-SNAPSHOT.jar  例如 :**/WEB-INF/lib/apm-agent-1.0-SNAPSHOT.jar    
+ 
+ agent接受参数：各个参数使用逗号隔开，参数类别如下:  
+ 
+ service.include（非必填） ：监控哪些包下面的类，包名可以使用通配符，多个包路径使用&字符隔开。  
+ 
+ service.exclude（非必填） ：排除监控哪些包下面的类，包名可以使用通配符，多个包路径使用&字符隔开。  
+ 
+ appKey（必填）:被监控项目代码。  
+ 
+ logPath（必填）：日志的输出路径。  
+ 
  
  #### 注释：
  sql的监控是监控java.sql.Driver接口中的java.sql.Connection 接口 和 java.sql.PreparedStatement 接口，mysql驱动对应：com.mysql.jdbc.NonRegisteringDriver。
