@@ -4,7 +4,7 @@
 
 ### 目前该工程已实现功能:  
 
-#### 1、采集指定路径类方法调用情况（不包含入参，返回结果，因为不是代理）  
+#### 1、采集指定路径类方法调用情况（不包含入参，返回结果，因为没有代理）  
 
 {"begin":1533783358148,"end":1533783358148,"useTime":0,"serviceName":"com.common.apm.test.TestServiceImpl","simpleName":".TestServiceImpl","methodName":"getUser","recordTime":1533783358148,"modelType":"service","hostIp":"","hostName":"","appKey":"zdzApp"}  
 
@@ -45,7 +45,7 @@
  
  agent接受参数：各个参数使用逗号隔开，参数类别如下:  
  
- service.include（非必填） ：监控哪些包下面的类，包名可以使用通配符，多个包路径使用&字符隔开。  
+ service.include（非必填：如果不填写就不会监听） ：监控哪些包下面的类，包名可以使用通配符，多个包路径使用&字符隔开。  
  
  service.exclude（非必填） ：排除监控哪些包下面的类，包名可以使用通配符，多个包路径使用&字符隔开。  
  
@@ -55,6 +55,7 @@
  
  
  #### 注释：
- sql的监控是监控java.sql.Driver接口中的java.sql.Connection 接口 和 java.sql.PreparedStatement 接口，mysql驱动对应：com.mysql.jdbc.NonRegisteringDriver。
+ sql的监控是监控java.sql.Driver接口中的java.sql.Connection 接口 和 java.sql.PreparedStatement 接口，mysql驱动对应：com.mysql.jdbc.NonRegisteringDriver。  
+ common-agent默认会监听com.mysql.jdbc.NonRegisteringDriver这个类，如果启动应用用到mysql驱动，在运行相关sql的时候便会把日志写到对应Log路径里面。
  
  
