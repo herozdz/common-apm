@@ -36,7 +36,7 @@ public class JdbcCommonCollects extends AbstractByteTransformCollect implements 
     }
 
     private final static String[] connection_agent_methods = new String[]{"prepareStatement"};
-    private final static String[] prepared_statement_methods = new String[]{"execute","executeUpdate","executeQuery"};
+    private final static String[] prepared_statement_methods = new String[]{"execute","executeUpdate","executeQuery","getResultSet"};
     private final static String beginSrc;
     private final static String endSrc;
     private final static String errorSrc;

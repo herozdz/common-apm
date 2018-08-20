@@ -33,8 +33,15 @@ public class ApmContextTest {
                         "test_write", "test_write123");
         PreparedStatement statment = conn
                 .prepareStatement("select * from free_lunch");
-        statment.executeQuery();
+        statment.execute();
         statment.close();
+
+
+        PreparedStatement statment1 = conn
+                .prepareStatement("select count(1) from free_lunch");
+        statment1.execute();
+        statment1.getResultSet();
+        statment1.close();
         conn.close();
     }
 }
